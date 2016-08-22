@@ -26,7 +26,6 @@ import com.example.kevinwu.fakesnapchat.Utils.Utils;
 public class MainActivity extends AppCompatActivity {
 
     public static int REQUEST_IMAGE_CAPTURE = 1;
-    public static Context mainActivityContext;
     private ImageView photoView;
     private EditText myText;
     private Bitmap photo;
@@ -35,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FloatingActionsMenu menuActions;
     private com.getbase.floatingactionbutton.FloatingActionButton drawButton;
-    private com.getbase.floatingactionbutton.FloatingActionButton clearButton;
-    private com.getbase.floatingactionbutton.FloatingActionButton sendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         menuActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
         drawButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.drawFab);
-        clearButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.clearFab);
-        sendButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.sendFab);
         photoView = (ImageView) findViewById(R.id.imageView);
         myContent = (RelativeLayout) findViewById(R.id.snapContent);
         myText = (EditText) findViewById(R.id.editText);
@@ -58,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         fabricView.setBackground(photoView.getDrawable());
         fabricView.setBackgroundColor(Color.TRANSPARENT);
 
-        MainActivity.mainActivityContext = getApplicationContext();
         //allows you to drag the caption
         myContent.setOnTouchListener(myTouchListener);
 
